@@ -1,0 +1,16 @@
+tools:
+  - nome: ingest
+    zona: Z0->Z1
+    resumo: le CSV bruto e produz digest agregado
+  - nome: lint
+    zona: Z1
+    resumo: roda C1-C7 sobre um digest
+  - nome: verify
+    zona: Z2
+    resumo: verifica a hash chain do ledger
+  - nome: query
+    zona: fora do funil (reporte)
+    resumo: roda query do catalogo (E8) contra Postgres; nunca alimenta publica
+  - nome: risco
+    zona: fora do funil (contrato de squad)
+    resumo: ingere veredito de risk squad (E23) e grava para publica ler

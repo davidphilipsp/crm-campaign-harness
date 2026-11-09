@@ -1,0 +1,158 @@
+{
+  "gerado_em": "2026-08-01T12:00:00Z",
+  "harness_commit": "87076b5",
+  "leituras": [
+    {
+      "achados": [
+        {
+          "evidencia": {
+            "1-60s": 80,
+            "3601-86400s": 3,
+            "61-3600s": 9,
+            "<=0s": 12,
+            ">86400s": 1
+          },
+          "resumo": "CLICK/IMPRESSION=0.94 acima do piso 0.60 (origem=default_nao_validado)",
+          "tipo": "ctor_anomalo"
+        }
+      ],
+      "bracos": [
+        {
+          "etapas": [
+            {
+              "nome": "enviado",
+              "rotulo": "medido",
+              "valor": "727"
+            },
+            {
+              "nome": "entregue",
+              "rotulo": "medido",
+              "valor": "480"
+            },
+            {
+              "nome": "aberto",
+              "rotulo": "medido",
+              "valor": "111"
+            },
+            {
+              "nome": "clicado",
+              "rotulo": "medido",
+              "valor": "105"
+            }
+          ],
+          "nome": "tratamento"
+        }
+      ],
+      "c2": null,
+      "c3": {
+        "achados": [
+          {
+            "braco": "tratamento",
+            "evidencia": {
+              "entregue": "480",
+              "enviado": "727"
+            },
+            "gate": "C3",
+            "resumo": "entrega=0.66 abaixo do piso 0.85 (origem=default_nao_validado)"
+          }
+        ],
+        "piso_usado": {
+          "origem": "default_nao_validado",
+          "valor": "0.85"
+        },
+        "veredito": "verde"
+      },
+      "campanha_id": "9000001",
+      "casa": "brand_a",
+      "contexto": "",
+      "digest_hash": "5c34df85a14250380c2a4e08a890ca7cdef261ea0036f81742271428ff865a2c",
+      "fase": "leitura",
+      "hipotese": "oferta converte mais que a generica",
+      "janela_fim": "2026-07-28T00:00:00Z",
+      "janela_inicio": "2026-07-01T00:00:00Z",
+      "universo": "csv"
+    }
+  ],
+  "preflights": [
+    {
+      "base_estimada": 150000,
+      "c11": {
+        "aprova": false,
+        "check": "C11",
+        "motivo": "max_duration_s=86400 < soma(delays_s)=136800"
+      },
+      "c8": {
+        "alternativas": [],
+        "mde_absoluto": "0.0057",
+        "mde_relativo": "0.19",
+        "n_holdout": 7500,
+        "n_tratamento": 142500,
+        "piso_amostra": {
+          "origem": "default_nao_validado",
+          "valor": "30"
+        },
+        "piso_mde_ok": {
+          "origem": "crm_md",
+          "valor": "0.25"
+        },
+        "veredito": "OK"
+      },
+      "c9": {
+        "aprova": true,
+        "check": "C9",
+        "motivo": ""
+      },
+      "casa": "brand_a",
+      "conversao_esperada": "0.03",
+      "fase": "preflight",
+      "pct_holdout": "0.05",
+      "regua": "reativacao-30d",
+      "universo": "csv"
+    }
+  ],
+  "riscos": [
+    {
+      "acao": "antichurn-bigbass-low",
+      "achados_governanca": [
+        {
+          "evidencia": {
+            "torneio": "Missao Artemis",
+            "valor_nominal": "25000.00"
+          },
+          "resumo": "Missao Artemis nunca foi paga",
+          "tipo": "linha_nao_paga"
+        }
+      ],
+      "casa": "brand_a",
+      "cobertura_ok": false,
+      "cobertura_pct": "0.795",
+      "cobertura_piso": {
+        "origem": "default_nao_validado",
+        "valor": "0.90"
+      },
+      "fase": "risco",
+      "janela_fim": "2026-08-07T01:34:03Z",
+      "janela_inicio": "2026-08-06T00:27:00Z",
+      "segmentos": [
+        {
+          "custo_total": "6823.72",
+          "nome": "low",
+          "taxa_aproveitamento": "0.787",
+          "turnover_atribuido": null,
+          "unidades_ofertadas": 8039,
+          "unidades_usadas": 6328
+        }
+      ],
+      "squad": "brand-a-risk-squad",
+      "vies_selecao": {
+        "evidencia": {
+          "turnover_controle_pre": "450.00",
+          "turnover_exposto_pre": "1200.00"
+        },
+        "resumo": "exposto ja era mais ativo que o controle antes da campanha",
+        "tipo": "vies_selecao"
+      }
+    }
+  ],
+  "versao": 2
+}

@@ -1,0 +1,35 @@
+# 1 · barra tudo
+*
+
+# 2 · reabre diretórios, senão o Git não desce e ignora as regras abaixo
+!*/
+
+# 3 · reabre o método (Z2)
+!*.py
+!*.md
+!*.yaml
+!*.yml
+!*.toml
+!*.sql
+!.gitattributes
+!.gitignore
+
+# 4 · fixture de teste, inclusive em subpasta (** atravessa /)
+!tests/golden/**/*.csv
+
+# 5 · por último, porque a última regra que casa vence
+.venv/
+__pycache__/
+resultados/
+!.python-version
+!.githooks/pre-commit
+!tests/**/*.json
+
+# 6 · nunca versionar segredo nem dado real (explicito, alem do "*" acima)
+.env
+.env.*
+data/
+outputs/
+*.xlsx
+*.csv
+!tests/golden/**/*.csv
